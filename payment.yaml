@@ -19,7 +19,12 @@ paths:
       requestBody:
         description: payment
         content:
-          application/json: {}
+          application/json:
+            schema:
+              type: string
+            examples:
+              ejemplo:
+                value: 12345ABC
         required: true
       responses:
         200: {}

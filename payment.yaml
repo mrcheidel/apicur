@@ -1,0 +1,51 @@
+---
+openapi: 3.0.0
+info:
+  title: Payments
+  description: This is a trial version of Payments API
+  contact:
+    name: Claudio Heidel
+    url: http://google.com
+    email: mrcheidel@gmail.com
+  license:
+    name: GNU AGPLv3
+    url: https://www.gnu.org/licenses/agpl.txt
+  version: 1.0.0
+paths:
+  /payment:
+    post:
+      summary: Create new payment
+      description: create a new payment transaction
+      requestBody:
+        description: payment
+        content:
+          application/json: {}
+        required: true
+      responses:
+        200: {}
+  /accounts/:
+    get:
+      description: Get detailed account info
+      operationId: getaccountinfo
+      parameters:
+      - name: account_id
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200: {}
+components:
+  schemas:
+    payment_id:
+      required:
+      - from
+      properties:
+        from:
+          type: integer
+        to: {}
+        subject: {}
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows: {}
